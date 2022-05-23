@@ -1,0 +1,11 @@
+
+## hiding json
+*.json
+
+## hiding data
+*.pkl
+*.csv
+*.ipynb
+
+## hiding checkpoints
+**.ipynb_checkpoints
