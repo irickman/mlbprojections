@@ -28,4 +28,4 @@ jobs:
         env: 
           GDRIVE_API_CREDENTIALS: ${{ secrets.GDRIVE_API_CREDENTIALS}}
         run:
-          python update-data.py 
+          python update_data.py 
