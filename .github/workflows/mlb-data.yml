@@ -14,18 +14,18 @@ jobs:
       - name: checkout repo content
         uses: actions/checkout@v3
 
-      - name: setup python
-        uses: actions/setup-python@v3
-        with: 
-          python-version: '3.8'
-
       - name: 'Authenticate to Google Cloud'
-        uses: 'google-github-actions/auth@v0.4.0'
+        uses: 'google-github-actions/auth@v0'
         with:
           create_credentials_file: True
           export_environment_variables: True
           workload_identity_provider: 'projects/39265641862/locations/global/workloadIdentityPools/pool1/providers/my-provider'
           service_account: 'mlbcode@formal-thunder-186123.iam.gserviceaccount.com'    
+
+      - name: setup python
+        uses: actions/setup-python@v3
+        with: 
+          python-version: '3.8'
 
       - name: install python packages
         run: |
