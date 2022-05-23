@@ -16,7 +16,8 @@ jobs:
 
       - name: setup python
         uses: actions/setup-python#v3
-        with: python-version: '3.8'
+        with: 
+          python-version: '3.8'
 
       - name: install python packages
         run: |
@@ -27,4 +28,4 @@ jobs:
         env: 
           GDRIVE_API_CREDENTIALS: ${{ secrets.GDRIVE_API_CREDENTIALS}}
         run:
-          python update-batting-average.py
+          python update-data.py 
