@@ -26,5 +26,5 @@ jobs:
 
       - name: run script
         env: 
-          GDRIVE_API_CREDENTIALS: ${{ secrets.GDRIVE_API_CREDENTIALS}}
+          GDRIVE_API_CREDENTIALS: ${{ fromJSON(secrets.GDRIVE_API_CREDENTIALS)}}
         run: python update_data.py 
