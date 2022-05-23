@@ -24,7 +24,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: 'Authenticate to Google Cloud'
+      - uses: 'google-github-actions/auth@v0.4.0'
+        with:
+          workload_identity_provider: 'projects/39265641862/locations/global/workloadIdentityPools/pool1/providers/my-provider'
+          service_account: 'mlbcode@formal-thunder-186123.iam.gserviceaccount.com'
+
       - name: run script
         env: 
-          GDRIVE_API_CREDENTIALS: ${{ fromJSON(secrets.GDRIVE_API_CREDENTIALS)}}
+          GDRIVE_API_CREDENTIALS: ${{ secrets.GDRIVE_API_CREDENTIALS}}
         run: python update_data.py 

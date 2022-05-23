@@ -9,7 +9,6 @@ import sys
 import os
 
 def run_pull(start_date="2022-04-07"):
-    creds=os.environ.get("GDRIVE_API_CREDENTIALS")
     yd=(datetime.now(pytz.timezone('US/Eastern')) - timedelta(1)).strftime('%Y-%m-%d')
     yr=int(start_date[:4])
     new_d=statcast(start_date,yd)
@@ -72,7 +71,7 @@ def run_pull(start_date="2022-04-07"):
 
     ## now write to the google sheet
     # #authorization
-    gc = pygsheets.authorize(service_account_env_var =creds) 
+    gc = pygsheets.authorize() 
     mlb = 'MLB At Bats'
     sh = gc.open(mlb)
 
