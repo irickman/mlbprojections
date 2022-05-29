@@ -73,7 +73,7 @@ def run_pull(start_date="2022-04-07",test_run=True):
 
     ## now write to the google sheet
     # #authorization
-    gc = pygsheets.authorize(credentials_directory=creds) 
+    gc = pygsheets.authorize(custom_credentials=creds) 
     mlb = 'MLB At Bats'
     sh = gc.open(mlb)
 
