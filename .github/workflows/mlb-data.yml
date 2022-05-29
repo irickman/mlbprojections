@@ -24,6 +24,7 @@ jobs:
         with:          
           create_credentials_file: True
           export_environment_variables: True
+          id_token_include_email: True
           workload_identity_provider: 'projects/39265641862/locations/global/workloadIdentityPools/pool1/providers/my-provider'
           service_account: 'mlbcode@formal-thunder-186123.iam.gserviceaccount.com'    
 
