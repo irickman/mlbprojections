@@ -11,8 +11,6 @@ import json
 
 def run_pull(start_date="2022-04-07",test_run=True):
     creds=os.environ.get("GOOGLE_GHA_CREDS_PATH")
-    service_account_info = json.load(creds)
-    my_credentials = service_account.Credentials.from_service_account_info(service_account_info)
     if not test_run:        
         yd=(datetime.now(pytz.timezone('US/Eastern')) - timedelta(1)).strftime('%Y-%m-%d')
         yr=int(start_date[:4])
@@ -76,7 +74,7 @@ def run_pull(start_date="2022-04-07",test_run=True):
 
     ## now write to the google sheet
     # #authorization
-    gc = pygsheets.authorize(custom_credentials =my_credentials) 
+    gc = pygsheets.authorize(credentials_directory =creds) 
     mlb = 'MLB At Bats'
     sh = gc.open(mlb)
 
