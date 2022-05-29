@@ -8,6 +8,11 @@ on:
 jobs:
   build: 
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+      
     steps:
 
 
@@ -17,6 +22,8 @@ jobs:
       - name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v0'
         with:
+          create_credentials_file: True
+          export_environment_variables: True
           workload_identity_provider: 'projects/39265641862/locations/global/workloadIdentityPools/pool1/providers/my-provider'
           service_account: 'mlbcode@formal-thunder-186123.iam.gserviceaccount.com'    
 
