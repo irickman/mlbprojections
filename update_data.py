@@ -8,7 +8,7 @@ import argparse
 import sys
 import os
 
-def run_pull(start_date="2022-04-07",test_run=T rue):
+def run_pull(start_date="2022-04-07",test_run=True):
     if test_run:
         creds=os.environ.get("GOOGLE_GHA_CREDS_PATH")
     yd=(datetime.now(pytz.timezone('US/Eastern')) - timedelta(1)).strftime('%Y-%m-%d')
