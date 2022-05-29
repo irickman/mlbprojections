@@ -1,8 +1,10 @@
 import pygsheets
 import os
-from google.oauth2.credentials import Credentials
-from google_auth_oauthlib.flow import InstalledAppFlow
-from googleapiclient.discovery import build
+from google.oauth2 import service_account
 
-credentials=os.environ.get("GOOGLE_GHA_CREDS_PATH")
 
+cred_file=os.environ.get("GOOGLE_GHA_CREDS_PATH")
+
+credentials = service_account.Credentials.from_service_account_file(
+        cred_file, scopes=SCOPES)
+gc = pygsheets.authorize(custom_credentials =credentials) 

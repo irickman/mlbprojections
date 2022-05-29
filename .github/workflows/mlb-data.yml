@@ -19,7 +19,8 @@ jobs:
       - name: checkout repo content
         uses: actions/checkout@v3
 
-      - name: 'Authenticate to Google Cloud'
+      - id: auth
+        name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v0'
         with:          
           create_credentials_file: True
@@ -39,4 +40,4 @@ jobs:
           pip install -r requirements.txt
 
       - name: run script
-        run: python test.py 
+        run: python test_pyg.py 
