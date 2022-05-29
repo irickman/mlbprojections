@@ -8,7 +8,7 @@ import argparse
 import sys
 import os
 
-def run_pull(start_date="2022-04-07",test_run=False):
+def run_pull(start_date="2022-04-07",test_run=True):
     creds=os.environ.get("GOOGLE_GHA_CREDS_PATH")
     if not test_run:        
         yd=(datetime.now(pytz.timezone('US/Eastern')) - timedelta(1)).strftime('%Y-%m-%d')
@@ -73,7 +73,7 @@ def run_pull(start_date="2022-04-07",test_run=False):
 
     ## now write to the google sheet
     # #authorization
-    gc = pygsheets.authorize(custom_credentials =creds) 
+    gc = pygsheets.authorize(service_file =creds) 
     mlb = 'MLB At Bats'
     sh = gc.open(mlb)
 
