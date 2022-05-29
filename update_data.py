@@ -9,7 +9,7 @@ import sys
 import os
 
 def run_pull(start_date="2022-04-07",test_run=true):
-    if test_run:
+    if not test_run:
         creds=os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
         yd=(datetime.now(pytz.timezone('US/Eastern')) - timedelta(1)).strftime('%Y-%m-%d')
         yr=int(start_date[:4])
