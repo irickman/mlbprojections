@@ -11,6 +11,8 @@ import json
 
 def run_pull(start_date="2022-04-07",test_run=True):
     creds=os.environ.get("GOOGLE_GHA_CREDS_PATH")
+    print(json.loads(creds))
+    exit()
     if not test_run:        
         yd=(datetime.now(pytz.timezone('US/Eastern')) - timedelta(1)).strftime('%Y-%m-%d')
         yr=int(start_date[:4])
