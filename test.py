@@ -3,12 +3,11 @@ from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 
-credentials=os.environ.get("GOOGLE_GHA_CREDS_PATH")
-SCOPES = ('https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive')
-flow = InstalledAppFlow.from_client_secrets_file(
-                credentials, SCOPES)
-creds = flow.run_local_server(port=0)
+# SERVICE_ACCOUNT_FILE=os.environ.get("GOOGLE_GHA_CREDS_PATH")
+# SCOPES = ('https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive')
+# creds = service_account.Credentials.from_service_account_file(
+#         SERVICE_ACCOUNT_FILE, scopes=SCOPES)
 
-service = build('sheets', 'v4', credentials=creds)
+service = build('sheets', 'v4')#, credentials=creds)
 
 sheet = service.spreadsheets()            
