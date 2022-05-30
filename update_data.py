@@ -9,8 +9,8 @@ import sys
 import os
 import json
 
-def run_pull(start_date="2022-04-07",test_run=True):
-    creds=os.environ.get("GOOGLE_GHA_CREDS_PATH")
+def run_pull(start_date="2022-04-07",test_run=False):
+    creds="service_account.json"
     if not test_run:        
         yd=(datetime.now(pytz.timezone('US/Eastern')) - timedelta(1)).strftime('%Y-%m-%d')
         yr=int(start_date[:4])
@@ -89,4 +89,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
