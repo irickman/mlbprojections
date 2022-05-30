@@ -10,4 +10,10 @@ from googleapiclient.discovery import build
 
 service = build('sheets', 'v4')#, credentials=creds)
 
-sheet = service.spreadsheets()            
+
+spreadsheet_id='18t44o27sqy_FVyZF5wrbqi4qV1AJq5yP3rbQpuJY0aQ'   
+range_name='Sheet1A1'  
+result = service.spreadsheets().values().get(
+    spreadsheetId=spreadsheet_id, range=range_name).execute()
+rows = result.get('values', [])
+print('{0} rows retrieved.'.format(len(rows)))       
