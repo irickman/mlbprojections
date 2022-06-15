@@ -2,7 +2,7 @@ name: mlb-batting-average-uploader
 
 on:
   schedule:
-    - cron: '0 16 * * *' ## every day at 16:00 UTC or 8 am PDT (7 am PST)
+    - cron: '0 16 * * *' ## every day at 16:00 UTC or 9 am PDT (8 am PST)
   workflow_dispatch:
 
 jobs:
